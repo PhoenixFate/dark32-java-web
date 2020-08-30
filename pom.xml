@@ -26,6 +26,8 @@
         <module>darkhorse32-java-web22-ajax</module>
         <module>darkhorse32-java-web23-listener</module>
         <module>darkhorse32-java-web24-filter</module>
+        <module>darkhorse32-java-web35-hibernate-day01</module>
+        <module>darkhorse32-java-web35-hibernate-day01-crm</module>
     </modules>
     <packaging>pom</packaging>
 
