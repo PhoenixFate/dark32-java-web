@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <context-param>
+        <param-name>aaa</param-name>
+        <param-value>com.example</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>com.example.web.ProductListServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet</servlet-name>
+        <url-pattern>/productList</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProductListServlet2</servlet-name>
+        <servlet-class>com.example.web.ProductListServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet2</servlet-name>
+        <url-pattern>/productList2</url-pattern>
+    </servlet-mapping>
+    
+    <servlet>
+        <servlet-name>ProductInfo</servlet-name>
+        <servlet-class>com.example.web.ProductInfoServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductInfo</servlet-name>
+        <url-pattern>/productInfo</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
