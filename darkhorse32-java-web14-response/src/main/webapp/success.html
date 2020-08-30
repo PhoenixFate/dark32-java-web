@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Success</title>
+    <script type="text/javascript">
+        window.onload=function (ev) {
+            let time = 5;
+            const second = document.getElementById("second");
+            const timer = setInterval(function () {
+                second.innerText = time+"";
+                time--;
+                if (time == 0) {
+                    clearInterval(timer);
+                    location.href = "http://localhost:8080/web14/servlet1";
+                }
+            }, 1000);
+        }
+    </script>
+    <style>
+        a{
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    恭喜你，注册成功,<span id="second" style="color:red;">5</span>秒后跳转，如不跳转，请点击<a>这里</a>跳转
+</body>
+</html>
