@@ -30,6 +30,8 @@
         <module>darkhorse32-java-web35-hibernate-day01-crm</module>
         <module>darkhorse32-java-web36-hibernate-day02</module>
         <module>darkhorse32-java-web36-hibernate-day02-crm</module>
+        <module>darkhorse32-java-web37-hibernate-day03</module>
+        <module>darkhorse32-java-web37-hibernate-day03-crm</module>
     </modules>
     <packaging>pom</packaging>
 
