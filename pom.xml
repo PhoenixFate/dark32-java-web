@@ -15,6 +15,10 @@
         <module>darkhorse32-java-web12-http-tomcat</module>
         <module>darkhorse32-java-web13-servlet</module>
         <module>darkhorse32-java-web14-response</module>
+        <module>darkhorse32-java-web15-request</module>
+        <module>darkhorse32-java-web16-cookie-session</module>
+        <module>darkhorse32-java-web17-jsp</module>
+        <module>darkhorse32-java-web17-jsp-project</module>
     </modules>
     <packaging>pom</packaging>
 

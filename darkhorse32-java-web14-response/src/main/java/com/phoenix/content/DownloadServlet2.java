@@ -1,7 +1,6 @@
 package com.phoenix.content;
 
-import sun.misc.BASE64Encoder;
-
+import org.apache.commons.codec.binary.Base64;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServlet;
@@ -11,6 +10,8 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class DownloadServlet2 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,9 +47,9 @@ public class DownloadServlet2 extends HttpServlet {
         } else if (agent.contains("Firefox")) {
             // 火狐浏览器
             System.out.println("Firefox 浏览器");
-            BASE64Encoder base64Encoder = new BASE64Encoder();
+            Base64 base64=new Base64();
             filenameEncoder = "=?utf-8?B?"
-                    + base64Encoder.encode(filename.getBytes("utf-8")) + "?=";
+                    + Arrays.toString(base64.encode(filename.getBytes(StandardCharsets.UTF_8))) + "?=";
             response.setHeader("Content-Disposition","attachment;filename="+filenameEncoder);
         } else if (agent.contains("Safari")){
             System.out.println("Safari 浏览器");
