@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <package name="api" namespace="/api" extends="struts-default" >
+        <action name="ApiAction1" class="com.phoenix.api.ApiDemo1" method="execute" >
+            <result name="success" type="dispatcher" >/api.jsp</result>
+        </action>
+        <action name="ApiAction2" class="com.phoenix.api.ApiDemo2" method="execute" >
+            <result name="success" type="dispatcher" >/api.jsp</result>
+        </action>
+        <action name="ApiAction3" class="com.phoenix.api.ApiDemo3" method="execute" >
+            <result name="success" type="dispatcher" >/api.jsp</result>
+        </action>
+    </package>
+
+</struts>

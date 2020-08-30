@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- i18n:国际化. 解决post提交乱码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 指定反问action时的后缀名
+        http://localhost:8080/struts2_day01/hello/HelloAction.do
+    -->
+    <constant name="struts.action.extension" value="action,do,html,,"/>
+
+    <!-- 指定struts2是否以开发模式运行
+            1.热加载主配置.(不需要重启即可生效)
+            2.提供更多错误信息输出,方便开发时的调试
+     -->
+    <constant name="struts.devMode" value="true"/>
+
+
+
+
+
+    <package name="result" namespace="/result" extends="struts-default" >
+        <action name="ResultAction1" class="com.phoenix.result.ResultDemo1" method="execute" >
+            <result name="success" type="dispatcher" >/hello.jsp</result>
+        </action>
+        <action name="ResultAction2" class="com.phoenix.result.ResultDemo2" method="execute" >
+            <result name="success" type="redirect" >/hello.jsp</result>
+        </action>
+        <!--转发到某个action； type=chain -->
+        <action name="ResultAction3" class="com.phoenix.result.ResultDemo3" method="execute" >
+            <result name="success" type="chain" >
+                <param name="actionName">ResultAction1</param>
+                <param name="namespace">/result</param>
+            </result>
+        </action>
+        <!--重定向到某个action； type=redirectAction -->
+        <action name="ResultAction4" class="com.phoenix.result.ResultDemo4" method="execute" >
+            <result name="success" type="redirectAction" >
+                <param name="actionName">ResultAction1</param>
+                <param name="namespace">/result</param>
+            </result>
+        </action>
+    </package>
+
+    <include file="com/phoenix/api/struts.xml"/>
+    <include file="com/phoenix/param/struts.xml"/>
+
+
+</struts>
