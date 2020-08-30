@@ -25,6 +25,7 @@
         <module>darkhorse32-java-web21-page</module>
         <module>darkhorse32-java-web22-ajax</module>
         <module>darkhorse32-java-web23-listener</module>
+        <module>darkhorse32-java-web24-filter</module>
     </modules>
     <packaging>pom</packaging>
 
