@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- i18n:国际化. 解决post提交乱码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 指定反问action时的后缀名
+        http://localhost:8080/struts2_day01/hello/HelloAction.do
+    -->
+    <constant name="struts.action.extension" value="action,do,html,,"/>
+
+    <!-- 指定struts2是否以开发模式运行
+            1.热加载主配置.(不需要重启即可生效)
+            2.提供更多错误信息输出,方便开发时的调试
+     -->
+    <constant name="struts.devMode" value="true"/>
+
+
+    <package name="valueStack" namespace="/valueStack" extends="struts-default" >
+        <action name="ValueStackAction" class="com.phoenix.valueStack.ValueStackAction" method="execute" >
+            <result name="success" type="dispatcher" >/showValueStack.jsp</result>
+        </action>
+        <action name="ValueStackAction2" class="com.phoenix.valueStack.ValueStackAction2" method="execute" >
+            <result name="success" type="dispatcher" >/form.jsp</result>
+        </action>
+        <action name="ValueStackAction3" class="com.phoenix.valueStack.ValueStackAction3" method="execute" >
+            <result name="success" type="dispatcher" >/form.jsp</result>
+        </action>
+        <action name="ValueStackAction4" class="com.phoenix.valueStack.ValueStackAction4" method="execute" >
+            <result name="success" type="redirectAction" >
+                <param name="actionName">ValueStackAction</param>
+                <param name="namespace">/valueStack</param>
+                <!--会作为参数附加到重定向路径之后，如果参数是动态到，使用${}包裹ognl表达式，动态取值-->
+                <param name="name">${name}</param>
+            </result>
+        </action>
+    </package>
+
+
+
+</struts>

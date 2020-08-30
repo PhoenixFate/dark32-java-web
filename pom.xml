@@ -36,6 +36,7 @@
         <module>darkhorse32-java-web38-hibernate-day04-crm</module>
         <module>darkhorse32-java-web39-struts2-day01</module>
         <module>darkhorse32-java-web40-struts2-day02</module>
+        <module>darkhorse32-java-web41-struts2-day03</module>
     </modules>
     <packaging>pom</packaging>
 
