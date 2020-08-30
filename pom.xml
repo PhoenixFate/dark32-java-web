@@ -12,6 +12,7 @@
         <module>darkhorse32-java-web09-jdbc</module>
         <module>darkhorse32-java-web10-jdbc</module>
         <module>darkhorse32-java-web11-xml</module>
+        <module>darkhorse32-java-web12-http-tomcat</module>
     </modules>
     <packaging>pom</packaging>
 
