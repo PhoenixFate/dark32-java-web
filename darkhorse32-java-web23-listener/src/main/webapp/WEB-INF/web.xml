@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <!--注册监听器-->
+    <listener>
+        <listener-class>com.phoenix.create.MyServletContextListener</listener-class>
+    </listener>
+
+    <listener>
+        <listener-class>com.phoenix.create.MyHttpSessionListener</listener-class>
+    </listener>
+
+    <!--监听ServletContext域属性变化的-->
+    <listener>
+        <listener-class>com.phoenix.attribute.MyServletContextAttributeListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>MyTestServlet</servlet-name>
+        <servlet-class>com.phoenix.attribute.MyTestServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestPersonBindingServlet</servlet-name>
+        <servlet-class>com.phoenix.domain.TestPersonBindingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestCustomerActiveServlet</servlet-name>
+        <servlet-class>com.phoenix.domain.TestCustomerActiveServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TestCustomerActiveServlet2</servlet-name>
+        <servlet-class>com.phoenix.domain.TestCustomerActiveServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TestCustomerActiveServlet2</servlet-name>
+        <url-pattern>/customerActive2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestCustomerActiveServlet</servlet-name>
+        <url-pattern>/customerActive</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TestPersonBindingServlet</servlet-name>
+        <url-pattern>/personBinding</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MyTestServlet</servlet-name>
+        <url-pattern>/test1</url-pattern>
+    </servlet-mapping>
+
+</web-app>
