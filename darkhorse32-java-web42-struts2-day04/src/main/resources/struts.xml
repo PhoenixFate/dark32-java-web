@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- i18n:国际化. 解决post提交乱码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 指定反问action时的后缀名
+        http://localhost:8080/struts2_day01/hello/HelloAction.do
+    -->
+    <constant name="struts.action.extension" value="action,do,html,,"/>
+
+    <!-- 指定struts2是否以开发模式运行
+            1.热加载主配置.(不需要重启即可生效)
+            2.提供更多错误信息输出,方便开发时的调试
+     -->
+    <constant name="struts.devMode" value="true"/>
+
+    <package name="interceptorDemo" namespace="/interceptorDemo" extends="struts-default" >
+        <!--1.注册拦截器-->
+        <interceptors>
+            <interceptor name="myInterceptor3" class="com.phoenix.interceptor.MyInterceptor3"/>
+            <!--2.注册拦截器栈-->
+            <interceptor-stack name="myStack">
+                <!--引用自定义的拦截器-->
+                <interceptor-ref name="myInterceptor3">
+                <!--    哪些方法拦截、哪些方法不拦截同时只能指定一个-->
+                <!--    指定哪些方法不拦截    -->
+                <!--    <param name="excludeMethods">query</param>-->
+                <!--    指定哪些方法拦截-->
+                    <param name="includeMethods">add</param>
+                </interceptor-ref>
+                <!--引用默认的拦截器栈（20个）-->
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!--3.指定默认拦截器栈-->
+        <default-interceptor-ref name="myStack"/>
+
+        <!--默认整个 package里面所有的action 会调用上面配置的interceptor-->
+        <action name="InterceptorAction_*" class="com.phoenix.interceptor.Demo1Action" method="{1}" >
+            <result name="success" type="dispatcher" >/index.jsp</result>
+            <result name="home" type="dispatcher" >/home.jsp</result>
+        </action>
+    </package>
+
+
+
+    <package name="tag" namespace="/tag" extends="struts-default" >
+        <!--默认整个 package里面所有的action 会调用上面配置的interceptor-->
+        <action name="TagAction" class="com.phoenix.tag.TagAction" method="execute" >
+            <result name="success" type="dispatcher" >/tag1.jsp</result>
+        </action>
+        <action name="TagAction2" class="com.phoenix.tag.TagAction2" method="execute" >
+            <result name="success" type="dispatcher" >/tag2.jsp</result>
+        </action>
+        <action name="TagAction3" class="com.phoenix.tag.TagAction3" method="execute" >
+            <result name="success" type="dispatcher" >/tag2.jsp</result>
+        </action>
+    </package>
+
+
+
+
+</struts>
