@@ -1,0 +1,10 @@
+.idea
+null
+target
+out
+*.iml
+.DS_Store
+.settings
+bin/
+
+build/
