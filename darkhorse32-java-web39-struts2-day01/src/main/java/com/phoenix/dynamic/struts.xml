@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <!--第一种配置动态方法的方式-->
+    <!--配置动态方法调用常量： 是否开启动态方法调用，默认是关闭的，需要手动开启-->
+    <!--了解-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
+    <!--<package name="dynamic" namespace="/dynamic" extends="struts-default">-->
+    <!--    <action name="DynamicAction" class="com.phoenix.dynamic.DynamicAction">-->
+    <!--        <result name="success">/hello.jsp</result>-->
+    <!--    </action>-->
+    <!--</package>-->
+
+    <!--第二种配置动态方法的方式: 通配符的方法-->
+    <!--使用{1}取出第一个*的内容 -->
+    <package name="dynamic" namespace="/dynamic" extends="struts-default">
+        <action name="DynamicAction_*" class="com.phoenix.dynamic.DynamicAction" method="{1}">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+
+</struts>

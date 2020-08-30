@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!--默认方法method:execute-->
+    <!--默认result name:success -->
+    <!--默认result type:dispatcher-->
+    <package name="defaultConfig" namespace="/default" extends="struts-default">
+        <!--找不到/default/下面的action会找这个配置的action，作为默认action处理请求-->
+        <default-action-ref name="DefaultAction"/>
+
+        <action name="DefaultAction" class="com.phoenix.defaultConfig.DefaultAction" method="execute">
+            <result name="success">/hello.jsp</result>
+        </action>
+    </package>
+
+</struts>
