@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>AdminProductListServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminProductListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAddProductUIServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminAddProductUIServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminAddProductServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminAddProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminDeleteProductServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminDeleteProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminShowProductServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminShowProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminUpdateProductServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminUpdateProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminSearchProductServlet</servlet-name>
+        <servlet-class>com.phoenix.web.AdminSearchProductServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ProductListServlet</servlet-name>
+        <servlet-class>com.phoenix.web.ProductListServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CheckUsernameServlet</servlet-name>
+        <servlet-class>com.phoenix.web.CheckUsernameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckUsernameServlet</servlet-name>
+        <url-pattern>/checkUsername</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductListServlet</servlet-name>
+        <url-pattern>/productList</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminSearchProductServlet</servlet-name>
+        <url-pattern>/searchProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminUpdateProductServlet</servlet-name>
+        <url-pattern>/adminUpdateProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminShowProductServlet</servlet-name>
+        <url-pattern>/showProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminDeleteProductServlet</servlet-name>
+        <url-pattern>/adminDeleteProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAddProductServlet</servlet-name>
+        <url-pattern>/adminAddProduct</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminAddProductUIServlet</servlet-name>
+        <url-pattern>/adminAddProductUI</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminProductListServlet</servlet-name>
+        <url-pattern>/adminProductList</url-pattern>
+    </servlet-mapping>
+
+
+
+    <servlet>
+        <servlet-name>productList2</servlet-name>
+        <servlet-class>com.phoenix.web.ProductListServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>productList2</servlet-name>
+        <url-pattern>/productList2</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
