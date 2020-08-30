@@ -5,11 +5,11 @@
          version="4.0">
     <context-param>
         <param-name>aaa</param-name>
-        <param-value>com.example</param-value>
+        <param-value>com.phoenix</param-value>
     </context-param>
     <servlet>
         <servlet-name>ProductListServlet</servlet-name>
-        <servlet-class>com.example.web.ProductListServlet</servlet-class>
+        <servlet-class>com.phoenix.web.ProductListServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductListServlet</servlet-name>
@@ -18,7 +18,7 @@
     
     <servlet>
         <servlet-name>ProductListServlet2</servlet-name>
-        <servlet-class>com.example.web.ProductListServlet2</servlet-class>
+        <servlet-class>com.phoenix.web.ProductListServlet2</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductListServlet2</servlet-name>
@@ -27,7 +27,7 @@
     
     <servlet>
         <servlet-name>ProductInfo</servlet-name>
-        <servlet-class>com.example.web.ProductInfoServlet</servlet-class>
+        <servlet-class>com.phoenix.web.ProductInfoServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductInfo</servlet-name>
