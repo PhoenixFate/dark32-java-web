@@ -41,6 +41,7 @@
         <module>darkhorse32-java-web39-42-struts2-crm</module>
         <module>darkhorse32-java-web43-spring-day01</module>
         <module>darkhorse32-java-web44-spring-day02</module>
+        <module>darkhorse32-java-web45-spring-day03</module>
     </modules>
     <packaging>pom</packaging>
 
