@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+
+
+    <!--set方法注入-->
+    <bean  name="user5" class="com.phoenix.bean.User" id="user5">
+        <property name="name" value="tom"/>
+        <property name="age" value="18"/>
+        <!--为car属性注入下面配置的car对象-->
+        <property name="car" ref="car"/>
+    </bean>
+
+    <!--将car对象配置到容器中    -->
+    <bean name="car" class="com.phoenix.bean.Car" id="car">
+        <property name="name" value="兰博基尼"/>
+        <property name="color" value="yellow"/>
+    </bean>
+
+    <!--构造函数注入-->
+    <bean name="user6" class="com.phoenix.bean.User" id="user6">
+        <constructor-arg name="name" value="jerry" index="0" type="java.lang.String"/>
+        <constructor-arg name="car" ref="car" index="1"/>
+    </bean>
+
+    <!-- p名称空间注入, 走set方法
+	1.导入P名称空间  xmlns:p="http://www.springframework.org/schema/p"
+	2.使用p:属性完成注入
+		|-值类型: p:属性名="值"
+		|-对象类型: p:属性名-ref="bean名称"
+    -->
+    <bean name="user7" class="com.phoenix.bean.User" id="user7" p:name="jack" p:age="29" p:car-ref="car"/>
+
+
+    <!--
+        spel注入: spring Expression Language sping表达式语言
+     -->
+    <bean  name="user8" class="com.phoenix.bean.User" >
+        <property name="name" value="#{user6.name}" />
+        <property name="age" value="#{user5.age}" />
+        <property name="car" ref="car" />
+    </bean>
+
+
+    <!--复杂类型注入-->
+    <!--array数组-->
+    <bean name="collectionBean" class="com.phoenix.injection.CollectionBean" >
+        <!--如果数组中只注入一个值/对象，直接使用property属性-->
+        <!--<property name="arr" value="123"/>-->
+
+        <!--数组注入多个值/对象-->
+        <property name="arr">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+                <ref bean="user5"/>
+            </array>
+        </property>
+
+        <!--list类型注入-->
+        <property name="list">
+            <list>
+                <value>a</value>
+                <value>b</value>
+                <value>c</value>
+                <ref bean="user7"/>
+            </list>
+        </property>
+
+        <!--map类型注入-->
+        <property name="map">
+            <map>
+                <entry key="123" value="abc"/>
+                <entry key="ee" value="dd"/>
+                <entry key="user" value-ref="user7"/>
+            </map>
+        </property>
+
+        <!--properties类型注入-->
+        <property name="properties">
+           <props>
+               <prop key="p1">sdf</prop>
+               <prop key="p2">sss</prop>
+               <prop key="o3">xx</prop>
+           </props>
+        </property>
+    </bean>
+
+
+
+</beans>
