@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+        "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+    <!-- i18n:国际化. 解决post提交乱码 -->
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+
+    <!-- 指定反问action时的后缀名
+        http://localhost:8080/struts2_day01/hello/HelloAction.do
+    -->
+    <constant name="struts.action.extension" value="action,do,html,,"/>
+
+    <!-- 指定struts2是否以开发模式运行
+            1.热加载主配置.(不需要重启即可生效)
+            2.提供更多错误信息输出,方便开发时的调试
+     -->
+    <constant name="struts.devMode" value="true"/>
+
+
+
+    <!-- package:将Action配置封装.就是可以在Package中配置很多action.
+            name属性: 给包起个名字,起到标识作用.随便起.不能其他包名重复.
+            namespace属性:给action的访问路径中定义一个命名空间
+            extends属性: 继承一个 指定包
+            abstract属性:包是否为抽象的; 标识性属性.标识该包不能独立运行.专门被继承
+      -->
+    <package name="crm" namespace="/crm" extends="struts-default" >
+        <!--配置拦截器-->
+        <!--1.配置拦截器-->
+        <interceptors>
+            <interceptor name="loginInterceptor" class="com.phoenix.interceptor.LoginInterceptor"/>
+        <!--   2.注册拦截器栈-->
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor">
+                    <param name="excludeMethods">login</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <!--3.指定包中到默认拦截器栈-->
+        <default-interceptor-ref name="loginStack"/>
+
+        <!--定义全局结果集-->
+        <global-results>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
+
+
+        <global-exception-mappings>
+            <!--如果出现exception这个异常，就将跳 转到error页面-->
+            <exception-mapping exception="java.lang.RuntimeException" result="error"/>
+        </global-exception-mappings>
+
+        <action name="CustomerAction_*" class="com.phoenix.web.action.CustomerAction" method="{1}" >
+            <result name="list" type="dispatcher" >/jsp/customer/list.jsp</result>
+            <result name="toList" type="redirectAction" >
+                <param name="actionName">/CustomerAction_list</param>
+                <param name="namespace">crm</param>
+            </result>
+        </action>
+
+        <action name="UserAction_*" class="com.phoenix.web.action.UserAction" method="{1}" >
+            <result name="toHome" type="redirect" >/index.jsp</result>
+            <result name="error" type="dispatcher">/login.jsp</result>
+        </action>
+    </package>
+
+
+    <!-- 引入其他struts配置文件 -->
+    <!--<include file="com/phoenix/dynamic/struts.xml"/>-->
+    <!--<include file="com/phoenix/defaultConfig/struts.xml"/>-->
+</struts>
