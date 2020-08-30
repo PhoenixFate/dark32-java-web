@@ -21,6 +21,7 @@
         <module>darkhorse32-java-web17-jsp-project</module>
         <module>darkhorse32-java-web18-el-jstl</module>
         <module>darkhorse32-java-web19-transaction</module>
+        <module>darkhorse32-java-web20-crud</module>
     </modules>
     <packaging>pom</packaging>
 
