@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script type="text/javascript">
+        function function1() {
+            //使用ajax异步访问服务器
+            //1.创建ajax引擎对象--------------所有的操作都是通过ajax引擎对象
+            var xmlHttp=new XMLHttpRequest();
+            //2.绑定监听事件-------------监听服务器是否已经返回数据
+            xmlHttp.onreadystatechange=function (ev) {
+                if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                    //5.接收相应数据
+                    var resText=xmlHttp.responseText;
+                    console.log(resText);
+                    document.getElementById("span1").innerHTML=resText;
+                }
+            }
+            //3.绑定地址---------请求方式；地址；是否异步
+            xmlHttp.open("GET","/web22/ajaxServlet?name=zhangsan",true);
+            //4.发送请求
+            xmlHttp.send();
+        }
+        function function2() {
+            //使用ajax异步访问服务器
+            //1.创建ajax引擎对象--------------所有的操作都是通过ajax引擎对象
+            var xmlHttp=new XMLHttpRequest();
+            //2.绑定监听事件-------------监听服务器是否已经返回数据
+            xmlHttp.onreadystatechange=function (ev) {
+                if(xmlHttp.readyState==4 && xmlHttp.status==200){
+                    //5.接收相应数据
+                    var resText=xmlHttp.responseText;
+                    console.log(resText);
+                    document.getElementById("span2").innerHTML=resText;
+                }
+            }
+            //3.绑定地址---------请求方式；地址；是否异步
+            xmlHttp.open("POST","/web22/ajaxServlet",false);
+            //4.发送请求
+            //POST防止在send中添加数据
+            //POST需要设置头
+            xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlHttp.send("name=lisi");
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="异步访问服务器端" onclick="function1()">
+    <span id="span1">span</span>
+    <br>
+    <input type="button" value="同步访问服务器端" onclick="function2()">
+    <span id="span2">span</span>
+    <br>
+    <input type="button" value="测试按钮" onclick="alert('!!!')">
+    <br>
+</body>
+</html>
