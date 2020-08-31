@@ -44,6 +44,7 @@
         <module>darkhorse32-java-web45-spring-day03</module>
         <module>darkhorse32-java-web46-spring-day04</module>
         <module>darkhorse32-java-web47-52-ssh-crm</module>
+        <module>darkhorse32-java-web77-lucene</module>
     </modules>
     <packaging>pom</packaging>
 
