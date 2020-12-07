@@ -52,6 +52,7 @@
         <module>darkhorse32-java-web04-javascript</module>
         <module>darkhorse32-java-web05-jquery</module>
         <module>darkhorse32-java-web06-jquery</module>
+        <module>darkhorse32-java-web07-bootstrap</module>
     </modules>
     <packaging>pom</packaging>
 
