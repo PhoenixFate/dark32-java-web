@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格标签</title>
+    <style>
+
+        /*
+            style="border: 1px solid #8ba7e3;background-color:#EEE;margin:0 auto;width:100%;  border-collapse: collapse; border-spacing: 1;"
+
+        */
+        /*style="border:none; border-collapse: collapse; border-spacing: 0;width:100%"*/
+
+
+        /*
+            cellSpacing="1" cellPadding="0" width="100%" align="center"
+			bgColor="#f5fafe" border="0"
+
+            style="border: none ;background-color:#f5fafe;margin:0 auto;width:100%;  border-collapse: collapse; border-spacing: 1;"
+
+         */
+        .myTable {
+            border: 1px solid black;
+            width: 450px;
+            height: 150px;
+            background-color: pink;
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin: 0 auto;
+        }
+        .myTable td {
+            text-align: center;
+            border: 1px solid black;
+        }
+        .myTable tr:nth-child(1){
+            height: 100px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+<!--cellspacing:设置边框与边框的间距，cellpadding:设置的是边框与内容的间距-->
+<!--    <table border="1px" width="450px" height="150px" align="center" bgcolor="pink" cellspacing="0px" cellpadding="0px">-->
+    <table border="1px" width="450px" height="180px" align="center" bgcolor="pink" cellspacing="0px" cellpadding="0px">
+        <tr height="100px" bgcolor="gold">
+            <td>11</td>
+            <td><font size="6">12</font></td>
+            <td>13</td>
+        </tr>
+
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+
+        <tr>
+            <td>31</td>
+            <td>32</td>
+            <td>33</td>
+        </tr>
+    </table>
+
+
+    <table class="myTable">
+        <tr>
+            <td>11</td>
+            <td>12</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td>22</td>
+            <td>23</td>
+        </tr>
+        <tr>
+            <td>31</td>
+            <td>32</td>
+            <td>33</td>
+        </tr>
+    </table>
+</body>
+</html>
