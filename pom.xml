@@ -46,6 +46,8 @@
         <module>darkhorse32-java-web47-52-ssh-crm</module>
         <module>darkhorse32-java-web77-lucene</module>
         <module>darkhorse32-java-web78-solr</module>
+        <module>darkhorse32-java-web01-html</module>
+        <module>darkhorse32-java-web02-css</module>
     </modules>
     <packaging>pom</packaging>
 
