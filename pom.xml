@@ -50,6 +50,8 @@
         <module>darkhorse32-java-web02-css</module>
         <module>darkhorse32-java-web03-javascript</module>
         <module>darkhorse32-java-web04-javascript</module>
+        <module>darkhorse32-java-web05-jquery</module>
+        <module>darkhorse32-java-web06-jquery</module>
     </modules>
     <packaging>pom</packaging>
 
