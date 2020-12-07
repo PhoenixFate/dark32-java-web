@@ -48,6 +48,7 @@
         <module>darkhorse32-java-web78-solr</module>
         <module>darkhorse32-java-web01-html</module>
         <module>darkhorse32-java-web02-css</module>
+        <module>darkhorse32-java-web03-javascript</module>
     </modules>
     <packaging>pom</packaging>
 
