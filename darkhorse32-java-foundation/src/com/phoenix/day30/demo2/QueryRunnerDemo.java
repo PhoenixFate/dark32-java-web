@@ -4,10 +4,9 @@ import java.lang.Character.UnicodeBlock;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import com.phoenix.day30.jdbcutil.JDBCUtilsConfig;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
-
-import cn.itcast.jdbcutil.JDBCUtilsConfig;
 
 /*
  *  使用QueryRunner类,实现对数据表的

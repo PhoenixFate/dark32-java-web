@@ -1,4 +1,4 @@
-﻿package com.phoenix.day11.demo06;
+package com.phoenix.day11.demo06;
 /*
  *   多态中,成员特点
  *   

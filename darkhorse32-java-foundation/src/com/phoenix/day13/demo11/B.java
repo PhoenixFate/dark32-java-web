@@ -1,5 +1,5 @@
 package com.phoenix.day13.demo11;
-import com.day13.demo10.*;
+import com.phoenix.day13.demo10.*;
 
 public class B extends A{
 	public void show(){

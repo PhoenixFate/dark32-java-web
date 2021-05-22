@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *         sop(变量);
  *      }
  */
-import com.day18.demo.Person;
+import com.phoenix.day18.demo.Person;
 public class ForEachDemo {
 	public static void main(String[] args) {
 		function();

@@ -1,14 +1,13 @@
 package com.phoenix.day30.demo;
 
+import com.phoenix.day30.domain.Sort;
+import com.phoenix.day30.jdbcutil.JDBCUtils;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-
-import cn.itcast.domain.Sort;
-import cn.itcast.jdbcutil.JDBCUtils;
-
 /*
  *  JDBC读取数据表sort,每行数据封装到Sort类的对象中
  *  很多个Sort类对象,存储到List集合中

@@ -1,8 +1,8 @@
 package com.phoenix.day29Utils.demo1;
 
-import java.sql.Connection;
+import com.phoenix.day29Utils.jdbcutil.JDBCUtilsConfig;
 
-import cn.itcast.jdbcutil.JDBCUtilsConfig;
+import java.sql.Connection;
 
 public class TestJDBCUtils {
 	public static void main(String[] args) {

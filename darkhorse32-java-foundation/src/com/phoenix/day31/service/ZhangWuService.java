@@ -1,7 +1,7 @@
 package com.phoenix.day31.service;
 
-import com.day31.dao.ZhangWuDao;
-import com.day31.domain.ZhangWu;
+import com.phoenix.day31.dao.ZhangWuDao;
+import com.phoenix.day31.domain.ZhangWu;
 
 import java.util.List;
 

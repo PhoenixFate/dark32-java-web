@@ -1,6 +1,6 @@
 package com.phoenix.day31.app;
 
-import com.day31.view.MainView;
+import com.phoenix.day31.view.MainView;
 
 /*
  *  主程序类,作用,开启软件程序

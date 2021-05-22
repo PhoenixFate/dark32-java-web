@@ -2,7 +2,7 @@ package com.phoenix.day19.demo1;
 
 import java.util.HashSet;
 
-import com.day19.demo3.Person;
+import com.phoenix.day19.demo3.Person;
 
 /*
  *  HashSet集合的自身特点:

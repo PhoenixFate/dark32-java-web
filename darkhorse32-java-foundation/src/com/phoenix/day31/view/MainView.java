@@ -5,8 +5,8 @@ package com.phoenix.day31.view;
  *  成员位置,创建controller对象
  */
 
-import com.day31.controller.ZhangWuController;
-import com.day31.domain.ZhangWu;
+import com.phoenix.day31.controller.ZhangWuController;
+import com.phoenix.day31.domain.ZhangWu;
 import java.util.List;
 import java.util.Scanner;
 

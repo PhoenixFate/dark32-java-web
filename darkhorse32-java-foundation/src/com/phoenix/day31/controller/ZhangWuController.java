@@ -5,8 +5,8 @@ package com.phoenix.day31.controller;
  *  成员位置,创建service对象
  */
 
-import com.day31.domain.ZhangWu;
-import com.day31.service.ZhangWuService;
+import com.phoenix.day31.domain.ZhangWu;
+import com.phoenix.day31.service.ZhangWuService;
 import java.util.List;
 
 public class ZhangWuController {

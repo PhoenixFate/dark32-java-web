@@ -7,8 +7,8 @@ package com.phoenix.day31.dao;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.day31.domain.ZhangWu;
-import com.day31.tools.JDBCUtils;
+import com.phoenix.day31.domain.ZhangWu;
+import com.phoenix.day31.tools.JDBCUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
