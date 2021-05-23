@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <servlet>
+        <servlet-name>CheckImageServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.CheckImgServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckImageServlet</servlet-name>
+        <url-pattern>/checkImage</url-pattern>
+    </servlet-mapping>
+
+<!--    encode filter-->
+    <filter>
+        <filter-name>EncodeFilter</filter-name>
+        <filter-class>com.phoenix.shop.web.filter.EncodingFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>EncodeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+<!--    权限filter-->
+    <filter>
+        <filter-name>PrivilegeFilter</filter-name>
+        <filter-class>com.phoenix.shop.web.filter.PrivilegeFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>PrivilegeFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+    <servlet>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.AdminUserServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminUserServlet</servlet-name>
+        <url-pattern>/adminUserServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.IndexServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/indexServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ProductServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.ProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductServlet</servlet-name>
+        <url-pattern>/productServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CategoryServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.CategoryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CategoryServlet</servlet-name>
+        <url-pattern>/categoryServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FileuploadServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.FileuploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileuploadServlet</servlet-name>
+        <url-pattern>/fileuploadServlet</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet>
+        <servlet-name>FileuploadServlet2</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.FileuploadServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>FileuploadServlet2</servlet-name>
+        <url-pattern>/fileuploadServlet2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddProductServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.AddProductServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddProductServlet</servlet-name>
+        <url-pattern>/addProductServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>OrderServlet</servlet-name>
+        <servlet-class>com.phoenix.shop.web.servlet.OrderServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>OrderServlet</servlet-name>
+        <url-pattern>/orderServlet</url-pattern>
+    </servlet-mapping>
+</web-app>
