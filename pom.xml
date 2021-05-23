@@ -54,6 +54,7 @@
         <module>darkhorse32-java-web06-jquery</module>
         <module>darkhorse32-java-web07-bootstrap</module>
         <module>darkhorse32-java-web78-solr-jd</module>
+        <module>darkhorse32-java-web28-34-shop</module>
     </modules>
     <packaging>pom</packaging>
 

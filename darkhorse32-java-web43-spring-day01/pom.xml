@@ -40,8 +40,21 @@
             <version>${spring.version}</version>
         </dependency>
         <!--spring-->
+        <!--junit-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <!-- 去掉scope作用域，使用默认的compile，编译、测试、运行都有效的作用域 -->
+            <!--<scope>test</scope>-->
+        </dependency>
+        <!-- commons-logging -->
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>
@@ -55,6 +68,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>
