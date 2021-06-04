@@ -48,8 +48,6 @@
             <groupId>org.wltea.ik-analyzer</groupId>
             <artifactId>ik-analyzer</artifactId>
             <version>8.2.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/ik-analyzer-8.2.0.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
@@ -57,12 +55,33 @@
             <version>4.12</version>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <execution>
+                        <id>install-ik-analyzer</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/ik-analyzer-8.2.0.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>org.wltea.ik-analyzer</groupId>
+                            <artifactId>ik-analyzer</artifactId>
+                            <version>8.2.0</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
