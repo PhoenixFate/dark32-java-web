@@ -9,7 +9,7 @@ mvn clean package -pl 父级模块名/子模块名 -am
 >> - rf -resume-from 从指定的模块恢复反应堆。
 
 ## 跳多单元测试
--Dmaven.test.skip=true 
+-DskipTests
 
 ## 不同环境参数
 -Pprod
