@@ -1,0 +1,16 @@
+.idea
+out
+null
+*.iml
+
+.DS_Store
+
+.classpath
+.project
+.settings
+bin/
+target
+build/
+
+logs/
+*.log
