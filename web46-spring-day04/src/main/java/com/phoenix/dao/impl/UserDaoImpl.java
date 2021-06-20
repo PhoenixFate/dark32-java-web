@@ -46,4 +46,7 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         return null;
     }
 
+    public void save(User u) {
+        getHibernateTemplate().save(u);
+    }
 }

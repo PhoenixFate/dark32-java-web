@@ -6,4 +6,6 @@ public interface UserService {
 
     User getUserByCodePassword(User user);
 
+    void saveUser(User user);
+
 }

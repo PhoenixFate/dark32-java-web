@@ -3,6 +3,7 @@
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
+    <!--这个已经不需要了，由spring类配置hibernate的相关配置-->
     <session-factory>
         <!--
         #hibernate.dialect org.hibernate.dialect.MySQLDialect

@@ -10,7 +10,7 @@
     <!--spring负责装配action的依赖属性，例如service等-->
     <!--这个默认是打开的，可以不配置-->
     <constant name="struts.objectFactory.spring.autoWire" value="name"/>
-    
+
 
     <!-- i18n:国际化. 解决post提交乱码 -->
     <constant name="struts.i18n.encoding" value="UTF-8"/>
@@ -24,7 +24,11 @@
      -->
     <constant name="struts.devMode" value="true"/>
 
-    <package name="crm" namespace="/crm" extends="struts-default" >
+    <package name="crm" namespace="/crm" extends="struts-default">
+        <global-exception-mappings>
+            <exception-mapping result="error" exception="java.lang.RuntimeException"/>
+        </global-exception-mappings>
+
         <!--默认整个 package里面所有的action 会调用上面配置的interceptor-->
         <!--整合方案1 不推荐
             class属性上仍然配置action的完整类名
@@ -38,8 +42,10 @@
                     完全由spring来管理action的生命周期包括action的创建
             注意：需要手动组装action中的依赖属性
         -->
-        <action name="UserAction_*" class="userAction" method="{1}" >
-            <result name="success" type="dispatcher" >/success.jsp</result>
+        <action name="UserAction_*" class="userAction" method="{1}">
+            <result name="success" type="dispatcher">/success.jsp</result>
+            <result name="toHome" type="redirect">/index.html</result>
+            <result name="error" >/login.jsp</result>
         </action>
     </package>
 

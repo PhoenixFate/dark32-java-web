@@ -25,9 +25,9 @@
         2.在spring配置中放置hibernate配置信息
     -->
     <!--不重要-->
-    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean2">
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-    </bean>
+    <!--<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean2">-->
+    <!--    <property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
+    <!--</bean>-->
 
     <!--重要-->
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean">
@@ -68,7 +68,38 @@
     <!--dao-->
     <bean class="com.phoenix.dao.impl.UserDaoImpl" name="userDao">
         <!--注入sessionFactory-->
-        <property name="sessionFactory" ref="localSessionFactoryBean2"/>
+        <property name="sessionFactory" ref="localSessionFactoryBean"/>
     </bean>
+
+
+    <!-- 核心事务管理器 -->
+    <bean name="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager" >
+        <property name="sessionFactory" ref="localSessionFactoryBean" />
+    </bean>
+    <!--方式1：xml配置事务-->
+    <!-- 配置通知 -->
+    <!-- <tx:advice id="txAdvice" transaction-manager="transactionManager" >
+        <tx:attributes>
+            <tx:method name="save*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="persist*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="update*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="modify*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="delete*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="remove*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="false" />
+            <tx:method name="get*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+            <tx:method name="find*" isolation="REPEATABLE_READ" propagation="REQUIRED" read-only="true" />
+        </tx:attributes>
+    </tx:advice> -->
+    <!-- 配置将通知织入目标对象
+    配置切点
+    配置切面 -->
+    <!-- <aop:config>
+        <aop:pointcut expression="execution(* cn.itcast.service.impl.*ServiceImpl.*(..))" id="txPc"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPc" />
+    </aop:config> -->
+    <!-- ========================================================================================= -->
+    <!-- 开启注解事务 -->
+    <!--方式二：注解配置事务-->
+    <tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>
