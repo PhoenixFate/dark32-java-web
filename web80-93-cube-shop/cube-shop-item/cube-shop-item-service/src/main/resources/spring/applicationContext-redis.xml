@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+	<!-- 连接redis 单机版-->
+<!--	<bean id="jedisClientPool" class="com.phoenix.common.jedis.JedisClientPool">-->
+<!--		<property name="jedisPool" ref="jedisPool"></property>-->
+<!--	</bean>-->
+
+	<!-- 读取redis pool的配置文件 -->
+	<context:property-placeholder location="classpath:${profiles.activation}/redisPool.properties" ignore-unresolvable="true"/>
+	<context:property-placeholder location="classpath:${profiles.activation}/redisKey.properties" ignore-unresolvable="true"/>
+
+
+	<bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+		<property name="maxTotal" value="${redis.maxTotal}"/>
+		<property name="minIdle" value="${redis.minIdle}"/>
+		<property name="maxIdle" value="${redis.maxIdle}"/>
+	</bean>
+
+	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">
+		<constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+		<constructor-arg name="host" value="${redis.host}"/>
+		<constructor-arg name="port" value="${redis.port}"/>
+		<constructor-arg name="timeout" value="${redis.timeout}"/>
+		<constructor-arg name="password" value="${redis.password}"/>
+		<constructor-arg name="database" value="${redis.database}"/>
+	</bean>
+
+	<!-- 连接redis 集群版-->
+	<bean id="jedisClientCluster" class="com.phoenix.common.jedis.JedisClientCluster">
+		<property name="jedisCluster" ref="jedisCluster"/>
+	</bean>
+
+	<bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
+		<!-- nodes的注入可以先创建多个HostAndPort的bean，下面使用<ref bean="node1"/>进行注入 -->
+		<constructor-arg name="jedisClusterNode">
+			<set>
+				<!-- 配置Redis集群中的Redis节点信息，端口分别是6379~6386共8个节点 -->
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster1.host}"/>
+					<constructor-arg name="port" value="${redis.cluster1.port}"/>
+				</bean>
+				<!-- 鉴于篇幅原因，中间省略了6个HostAndPort的配置 -->
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster2.host}"/>
+					<constructor-arg name="port" value="${redis.cluster2.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster3.host}"/>
+					<constructor-arg name="port" value="${redis.cluster3.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster4.host}"/>
+					<constructor-arg name="port" value="${redis.cluster4.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster5.host}"/>
+					<constructor-arg name="port" value="${redis.cluster5.port}"/>
+				</bean>
+				<bean class="redis.clients.jedis.HostAndPort">
+					<constructor-arg name="host" value="${redis.cluster6.host}"/>
+					<constructor-arg name="port" value="${redis.cluster6.port}"/>
+				</bean>
+			</set>
+		</constructor-arg>
+		<constructor-arg name="connectionTimeout" value="${redis.cluster.connectionTimeout}"/>
+		<constructor-arg name="soTimeout" value="${redis.cluster.soTimeout}"/>
+		<constructor-arg name="maxAttempts" value="${redis.cluster.maxAttempts}"/>
+		<constructor-arg name="password" value="${redis.cluster.password}"/>
+		<constructor-arg name="poolConfig" ref="jedisPoolConfig"/>
+	</bean>
+
+
+</beans>

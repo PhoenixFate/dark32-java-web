@@ -56,6 +56,7 @@
         <module>web77-lucene</module>
         <module>web78-solr</module>
         <module>web78-solr-jd</module>
+        <module>web80-93-cube-shop</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+
+    <context:property-placeholder location="classpath:${profiles.activation}/activeMQ.properties" ignore-unresolvable="true"/>
+
+    <!--	可以真正产生Connection 的ConnectionFactory ，由对应的jms服务厂商提供-->
+    <bean id="activeMQConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+        <constructor-arg name="brokerURL" value="${activeMQ.url}"/>
+    </bean>
+    <!--	spring 用于管理真正的的ConnectionFactory 的ConnectionFactory-->
+    <bean id="singleConnectionFactory" class="org.springframework.jms.connection.SingleConnectionFactory">
+        <!--		目标connectionFactory对应真实的可以产生jms Connection的ConnectionFactory的-->
+        <constructor-arg name="targetConnectionFactory" ref="activeMQConnectionFactory"/>
+    </bean>
+
+    <!--	demo start-->
+    <!--	队列目的地，点对点的-->
+    <bean id="activeMQQueue" class="org.apache.activemq.command.ActiveMQQueue">
+        <constructor-arg value="spring-queue"/>
+    </bean>
+
+    <!--主题（topic）目的地，一对多的-->
+    <bean id="activeMQTopic" class="org.apache.activemq.command.ActiveMQTopic">
+        <constructor-arg value="topic"/>
+    </bean>
+
+    <!--	注入自己的Listern，用户处理接受到到消息-->
+    <bean id="solrMessageListener" class="com.phoenix.search.message.SolrMessageListener"/>
+
+    <!--	配置 消息监听容器-->
+    <bean id="defaultMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="singleConnectionFactory"/>
+        <property name="destination" ref="activeMQQueue"/>
+        <property name="messageListener" ref="solrMessageListener"/>
+    </bean>
+    <!--	demo end-->
+
+
+<!--item add start-->
+    <!--	添加商品 同步索引库 listener-->
+    <bean id="itemAddMessageListener" class="com.phoenix.search.message.ItemAddMessageListener"/>
+
+	<!--	添加商品，发送消息，solr接受消息同步索引库，redis接受消息，同步缓存，freemarker接受消息同步生产静态页面，所以使用topic-->
+	<bean id="itemAddTopic" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg value="item-add-topic"/>
+	</bean>
+    <!--	配置 消息监听容器-->
+    <bean id="itemAddMessageListenerContainer" class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+        <property name="connectionFactory" ref="singleConnectionFactory"/>
+        <property name="destination" ref="itemAddTopic"/>
+        <property name="messageListener" ref="itemAddMessageListener"/>
+    </bean>
+<!--item add end-->
+
+
+</beans>

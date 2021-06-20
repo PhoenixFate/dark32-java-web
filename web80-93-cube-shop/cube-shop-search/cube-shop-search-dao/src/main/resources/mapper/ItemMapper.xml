@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.phoenix.search.mapper.SearchItemMapper" >
+  <resultMap id="BaseResultMap" type="com.phoenix.common.pojo.SearchItem" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="sell_point" property="sellPoint" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="VARCHAR" />
+    <result column="image" property="image" jdbcType="VARCHAR" />
+    <result column="name" property="categoryName" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="getItemList" resultMap="BaseResultMap">
+    select  a.id,a.title,a.sell_point,a.price,a.image,b.name
+        from tb_item a left join tb_item_cat b on a.cid=b.id
+        where a.status=1
+  </select>
+
+  <select id="getItemById" parameterType="long" resultMap="BaseResultMap">
+    select  a.id,a.title,a.sell_point,a.price,a.image,b.name
+        from tb_item a left join tb_item_cat b on a.cid=b.id
+        where a.status=1 and a.id=#{id}
+  </select>
+
+
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+		PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<plugins>
+		<!--		配置拦截器；分页插件 pageHelper-->
+		<!--		<plugin interceptor="com.github.pagehelper.PageHelper">-->
+		<!--		自4.0.0版本以后就不再实现这个接口了，转而实现这个接口：org.apache.ibatis.plugin.Interceptor，因此，修改配置如下：-->
+		<!-- 引入 pageHelper插件 -->
+		<!--注意这里要写成PageInterceptor, 5.0之前的版本都是写PageHelper, 5.0之后要换成PageInterceptor-->
+		<plugin interceptor="com.github.pagehelper.PageInterceptor">
+
+			<!--		配置方言；指定当前使用的数据库-->
+			<!--			自4.0.0以后的版本已经可以自动识别数据库了，所以不需要我们再去指定数据库，所以，修改配置：-->
+			<!--			<property name="dialect" value="mysql"/>-->
+
+
+			<!--reasonable：分页合理化参数，默认值为false。
+                当该参数设置为 true 时，pageNum<=0 时会查询第一页，
+                pageNum>pages（超过总数时），会查询最后一页。
+                默认false 时，直接根据参数进行查询。-->
+			<property name="reasonable" value="true"/>
+		</plugin>
+
+
+	</plugins>
+</configuration>
