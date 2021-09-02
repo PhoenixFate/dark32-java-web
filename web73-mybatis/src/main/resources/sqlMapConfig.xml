@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="jdbc.properties"/>
+	<!-- 别名 包以其子包下所有类; 别名为类名、头字母大小都行-->
+	<typeAliases>
+<!-- 		<typeAlias type="com.phoenix.pojo.User" alias="User"/> -->
+		<package name="com.phoenix.pojo"/>
+		<package name="com.phoenix.vo"/>
+	</typeAliases>
+	<!-- 和spring整合后 environments配置将废除; mybatis单独使用时连接数据库 -->
+	<environments default="development">
+		<environment id="development">
+			<!-- 使用jdbc事务管理 -->
+			<transactionManager type="JDBC" />
+			<!-- 数据库连接池 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url"
+					value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- Mapper的位置  Mapper.xml 写Sql语句的文件的位置 -->
+	<mappers>
+		 <!--resource class url 三个只能选一个-->
+		 <!--单独某个xml-->
+ 		<!--<mapper resource="com/phoenix/junit/UserMapper.xml"/>-->
+		<!--次方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中-->
+		<!-- <mapper class="com.phoenix.mapper.UserMapper" /> -->
+		<!--次方法要求mapper接口名称和mapper映射文件名称相同，且放在同一个目录中-->
+		<package name="com.phoenix.mapper"/>
+	</mappers>
+</configuration>

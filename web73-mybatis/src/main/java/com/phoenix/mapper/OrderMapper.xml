@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写Sql语句
+namespace: 命名空间
+-->
+<mapper namespace="com.phoenix.mapper.OrderMapper">
+    <resultMap id="ordersMap" type="Orders">
+        <id column="id" property="id"/>
+        <!--属性值和表中的列名相等的情况下可以不写，会自动映射-->
+        <result column="user_id" property="userId"/>
+        <result column="create_time" property="createTime"/>
+    </resultMap>
+    <!--<select id="getAllOrderList" resultType="orders">-->
+    <!--因为orders对象中字段和表字段不对应，所以需要映射-->
+    <select id="getAllOrderList" resultMap="ordersMap">
+        select id, user_id, number, create_time, note
+        from darkhorse32_mybatis.orders
+    </select>
+
+    <!--一对一关联查询，以订单为中心关联用户
+        当进行一对一、一对多关联查询的时候，返回值一定是resultMap
+    -->
+    <resultMap id="orderWithUserMap" type="Orders">
+        <id column="id" property="id"/>
+        <!--一对一映射的情况下不能省略column和property相等的，不会自动映射-->
+        <result column="user_id" property="userId"/>
+        <result column="create_time" property="createTime"/>
+        <!--  一对一  -->
+        <association property="user" javaType="User" columnPrefix="u_">
+            <id column="id" property="id"/>
+            <result column="username" property="username"/>
+        </association>
+    </resultMap>
+    <select id="selectOrdersWithUser" resultMap="orderWithUserMap">
+        select o.id,
+               o.user_id,
+               o.number,
+               o.create_time,
+               u.id as u_id,
+               u.username as u_username
+        from darkhorse32_mybatis.orders o
+                 left join user u
+                           on o.user_id = u.id
+    </select>
+
+</mapper>

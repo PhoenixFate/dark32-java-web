@@ -13,8 +13,8 @@
 
     <groupId>org.csource</groupId>
     <version>1.27-SNAPSHOT</version>
-    <name>fastdfs-client-java</name>
-    <description>fastdfs client for java</description>
+    <name>cube-shop-fastdfs-client</name>
+    <description>fastDFS client for java</description>
     <packaging>jar</packaging>
 
     <properties>

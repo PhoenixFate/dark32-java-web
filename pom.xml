@@ -57,6 +57,12 @@
         <module>web78-solr</module>
         <module>web78-solr-jd</module>
         <module>web80-93-cube-shop</module>
+        <module>web56-57-maven</module>
+        <module>web72-mybatis</module>
+        <module>web73-mybatis</module>
+        <module>web73-mybatis-spring</module>
+        <module>web73-mybatis-generator</module>
+        <module>web74-75-springmvc</module>
     </modules>
     <packaging>pom</packaging>
 

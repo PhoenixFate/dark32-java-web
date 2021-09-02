@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写Sql语句
+namespace: 命名空间
+-->
+<mapper namespace="com.phoenix.mapper.UserMapper">
+
+    <!--可以将重复的sql抽离出来，然后重复利用-->
+    <sql id="selector">
+        select *
+        from user
+    </sql>
+
+    <!--
+        resultType:如果没有配置别名，需要使用全名：com.phoenix.pojo.User
+        sqlMapConfig.xml中配置了类的别名：
+        	<typeAliases>
+                <package name="com.phoenix.pojo"/>
+            </typeAliases>
+        所以可以直接使用别名
+    -->
+    <!-- 通过ID查询一个用户 -->
+    <select id="findUserById" parameterType="Integer" resultType="User">
+        select *
+        from user
+        where id = #{id}
+    </select>
+
+    <!-- //根据用户名称模糊查询用户列表
+    #{} 占位符   select * from user where id = ？    占位符  ? ==  '五'
+    ${} 字符串拼接   select * from user where username like '%五%'  字符串拼接
+     -->
+    <!--输出对象为pojo对象-->
+    <select id="findUserByUsername" parameterType="String" resultType="com.phoenix.pojo.User">
+        select *
+        from user
+        where username like concat('%', #{username}, '%')
+    </select>
+
+    <!-- 添加用户 -->
+    <insert id="insertUser" parameterType="com.phoenix.pojo.User">
+        <!-- 执行完insert之后，返回id的值 -->
+        <selectKey keyProperty="id" resultType="Integer" order="AFTER">
+            select LAST_INSERT_ID()
+        </selectKey>
+        insert into user (username,birthday,address,sex)
+        values (#{username},#{birthday},#{address},#{sex})
+    </insert>
+
+    <!-- 更新 -->
+    <update id="updateUserById" parameterType="com.phoenix.pojo.User">
+        update user
+        set username = #{username},
+            sex      = #{sex},
+            birthday = #{birthday},
+            address  = #{address}
+        where id = #{id}
+    </update>
+
+    <!-- 删除 -->
+    <delete id="deleteUserById" parameterType="Integer">
+        delete
+        from user
+        where id = #{vvvvv}
+    </delete>
+
+    <!--输入类型的包装类-->
+    <!-- 根据用户名称模糊查询用户列表-->
+    <select id="findUserByQueryVo" parameterType="UserQueryVo" resultType="com.phoenix.pojo.User">
+        select *
+        from user
+        where username like concat('%', #{user.username}, '%')
+    </select>
+
+    <!--输出类型是简单类型-->
+    <select id="getUserCount" resultType="Integer">
+        select count(*)
+        from user
+    </select>
+
+    <select id="getOrdersBySexAndUsername" resultType="User" parameterType="user">
+        <!--使用sql片断-->
+        <include refid="selector"/>
+        <!--这样会有一个多余的1==1，可以用where标签来处理-->
+        <!--where 1=1-->
+        <!--<if test="sex!=null">-->
+        <!--    and sex = #{sex}-->
+        <!--</if>-->
+        <!--<if test="username!=null and username!=''">-->
+        <!--    and username  like concat('%', #{usernmae}, '%')-->
+        <!--</if>-->
+        <!--where标签可以去掉第一个前and-->
+        <where>
+            <if test="sex!=null">
+                and sex = #{sex}
+            </if>
+            <if test="username!=null and username!=''">
+                and username like concat('%', #{usernmae}, '%')
+            </if>
+        </where>
+    </select>
+
+    <!--foreach-->
+    <select id="selectUserByIds3" resultType="User" parameterType="UserQueryVo">
+        <include refid="selector"/>
+        <where>
+            id in
+            <foreach collection="idList" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
+    <select id="selectUserByIds2" resultType="User">
+        <include refid="selector"/>
+        <where>
+            id in
+            <foreach collection="list" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
+    <select id="selectUserByIds1" resultType="User">
+        <include refid="selector"/>
+        <where>
+            id in
+            <foreach collection="array" item="id" separator="," open="(" close=")">
+                #{id}
+            </foreach>
+        </where>
+    </select>
+
+    <!--一对多关联查询-->
+    <resultMap id="userWithOrderMap" type="User">
+        <!--一对多映射的情况下不能省略column和property相等的，不会自动映射-->
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="sex" property="sex"/>
+        <result column="birthday" property="birthday"/>
+        <collection property="orderList" ofType="Orders" columnPrefix="o_">
+            <id column="id" property="id"/>
+            <result column="number" property="number"/>
+            <result column="create_time" property="createTime"/>
+        </collection>
+    </resultMap>
+    <select id="selectUserListWithOrders" resultMap="userWithOrderMap">
+        select u.id,
+               u.username,
+               u.sex,
+               u.birthday,
+               o.id          as o_id,
+               o.create_time as o_create_time
+        from darkhorse32_mybatis.user u
+                 left join darkhorse32_mybatis.orders o
+                           on u.id = o.user_id
+    </select>
+
+
+</mapper>

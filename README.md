@@ -1,6 +1,7 @@
 # JAVA 黑马32期代码
 
 ## 单独打包某个子项目
+
 mvn clean package -pl 父级模块名/子模块名 -am
 > 参数说明：
 >> - am --also-make 同时构建所列模块的依赖模块；
@@ -9,9 +10,17 @@ mvn clean package -pl 父级模块名/子模块名 -am
 >> - rf -resume-from 从指定的模块恢复反应堆。
 
 ## 跳多单元测试
+
 -DskipTests
 
 ## 不同环境参数
--Pprod
--Ptest
--Pdev
+
+-Pprod -Ptest -Pdev
+
+### IDEA点击download source 报错：
+
+```
+IDEA点击download source 报错：
+Caused by: java.rmi.ConnectException: Connection refused to host: 127.0.0.1
+```
+> 解决方案： 删除对应 project 目录的 .idea文件夹，然后在IDEA中的maven，重新reload一下再点击 Download sources 接口。

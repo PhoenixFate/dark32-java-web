@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 写Sql语句
+namespace: 命名空间
+-->
+<mapper namespace="com.phoenix.mapper.UserMapper">
+
+    <select id="selectUserById" parameterType="Integer" resultType="User">
+        select *
+        from darkhorse32_mybatis.user
+        where id = #{id}
+    </select>
+
+</mapper>
