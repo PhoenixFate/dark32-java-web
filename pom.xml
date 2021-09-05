@@ -63,6 +63,7 @@
         <module>web73-mybatis-spring</module>
         <module>web73-mybatis-generator</module>
         <module>web74-75-springmvc</module>
+        <module>web76-ssm</module>
     </modules>
     <packaging>pom</packaging>
 
