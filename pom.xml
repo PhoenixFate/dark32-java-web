@@ -64,6 +64,7 @@
         <module>web73-mybatis-generator</module>
         <module>web74-75-springmvc</module>
         <module>web76-ssm</module>
+        <module>web53-55-oracle-java</module>
     </modules>
     <packaging>pom</packaging>
 
