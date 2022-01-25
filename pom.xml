@@ -65,6 +65,7 @@
         <module>web74-75-springmvc</module>
         <module>web76-ssm</module>
         <module>web53-55-oracle-java</module>
+        <module>foundation</module>
     </modules>
     <packaging>pom</packaging>
 
