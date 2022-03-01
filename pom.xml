@@ -66,6 +66,7 @@
         <module>web76-ssm</module>
         <module>web53-55-oracle-java</module>
         <module>foundation</module>
+        <module>web25-enhance</module>
     </modules>
     <packaging>pom</packaging>
 
