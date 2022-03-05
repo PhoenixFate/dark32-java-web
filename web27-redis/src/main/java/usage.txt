@@ -1,0 +1,14 @@
+打开redis控制台：
+String:
+
+set key value 设置值
+get key 取值
+del key 删除指定key
+getset key value 先获取该key值，然后设置该key的值
+incr key 将指定的key的value原子性的递增1.如果该key不存在，其初始值	为0，在incr之后其值为1。如果value的值不能转成整型，如hello，该操作将执	行失败并返回相应的错误信息
+decr key
+incrby key increment 将指定的key的value原子性增加increment，如果该	key不存在，器初始值为0，在incrby之后，该值为increment。如果该值不能转成	整型，如hello则失败并返回错误信息
+: incrby num 5
+decrby key increment
+append key value 如果该key存在，则在原有的value后追加该值；如果该key不存在，则重新创建一个key/value
+

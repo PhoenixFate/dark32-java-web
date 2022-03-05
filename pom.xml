@@ -67,6 +67,7 @@
         <module>web53-55-oracle-java</module>
         <module>foundation</module>
         <module>web25-enhance</module>
+        <module>web27-redis</module>
     </modules>
     <packaging>pom</packaging>
 

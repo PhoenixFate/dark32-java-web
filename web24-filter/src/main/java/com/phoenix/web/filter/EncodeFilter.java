@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletRequestWrapper;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public class EncodeFilter implements Filter {
     public void destroy() {
@@ -50,7 +51,7 @@ class  EnhanceRequest extends HttpServletRequestWrapper {
         String parameter=httpServletRequest.getParameter(name);//乱码
         //对乱码的parameter进行重新编码
         try {
-            parameter=new String(parameter.getBytes("iso8859-1"),"utf-8");
+            parameter=new String(parameter.getBytes("iso8859-1"), StandardCharsets.UTF_8);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
