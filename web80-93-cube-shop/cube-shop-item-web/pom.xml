@@ -13,7 +13,7 @@
     <packaging>war</packaging>
 
     <dependencies>
-        <!--        service 中依赖的pojo、dao、interface-->
+        <!--service 中依赖的pojo、dao、interface-->
         <dependency>
             <groupId>com.phoenix</groupId>
             <artifactId>cube-shop-item-interface</artifactId>
@@ -109,10 +109,6 @@
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
 
         <!-- 时间操作组件 -->
         <dependency>
@@ -168,7 +164,6 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
@@ -181,45 +176,29 @@
             <version>1.27-SNAPSHOT</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
         </dependency>
 
-
-
-        <!--            active mq-->
+        <!--active mq-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-broker</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-pool</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-spring</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>artemis-jms-client</artifactId>
-            <version>2.3.0</version>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
-
-
     </dependencies>
-
 
     <profiles>
         <profile>

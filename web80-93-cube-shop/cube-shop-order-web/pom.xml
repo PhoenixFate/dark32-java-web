@@ -9,14 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.phoenix</groupId>
     <artifactId>cube-shop-order-web</artifactId>
     <packaging>war</packaging>
 
-
-
     <dependencies>
-        <!--        service 中依赖的pojo、dao、interface-->
+        <!-- service 中依赖的pojo、dao、interface-->
         <dependency>
             <groupId>com.phoenix</groupId>
             <artifactId>cube-shop-order-interface</artifactId>
@@ -126,10 +123,6 @@
             <groupId>com.github.sgroschupf</groupId>
             <artifactId>zkclient</artifactId>
         </dependency>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
 
         <!-- 时间操作组件 -->
         <dependency>
@@ -176,7 +169,6 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- 日志处理 -->
@@ -184,7 +176,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
-
 
         <!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
         <dependency>
@@ -198,38 +189,27 @@
             <version>1.27-SNAPSHOT</version>
         </dependency>
 
-
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
         </dependency>
 
-        <!--            active mq-->
+        <!--active mq-->
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-broker</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-pool</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>activemq-spring</artifactId>
-            <version>${activemq.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.activemq</groupId>
             <artifactId>artemis-jms-client</artifactId>
-            <version>2.3.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jms</artifactId>
-            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>com.phoenix</groupId>
@@ -237,10 +217,7 @@
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
-
-
     </dependencies>
-
 
     <profiles>
         <profile>
@@ -271,7 +248,6 @@
         </profile>
     </profiles>
 
-
     <build>
         <plugins>
             <plugin>
@@ -282,7 +258,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -345,7 +320,5 @@
             mvn clean install -Dmaven.test.skip=true -Pprod
         -->
     </build>
-
-
 
 </project>
