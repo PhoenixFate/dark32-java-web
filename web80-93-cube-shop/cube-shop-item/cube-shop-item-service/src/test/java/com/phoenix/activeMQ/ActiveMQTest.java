@@ -9,7 +9,7 @@ public class ActiveMQTest {
 
     private String ActiveMQAliyunUrl="tcp://47.99.113.229:61616";
 
-    private String ActiveMQDellUrl="tcp://114.67.89.253:19027";
+    private String ActiveMQDellUrl="tcp://www.bytes-space.com:19027";
 
     /**
      * queue 点到点

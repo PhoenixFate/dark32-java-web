@@ -15,7 +15,7 @@ public class QueryAll {
             //1. 注册驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
             //2.获取连接
-            String url ="jdbc:mysql://114.67.89.253:3306/web08?useUnicode=true&characterEncoding=utf8&useSSL=false";
+            String url ="jdbc:mysql://www.bytes-space.com:3306/web08?useUnicode=true&characterEncoding=utf8&useSSL=false";
             String username="root";
             String password="centos123qwer";
             connection= DriverManager.getConnection(url,username,password);

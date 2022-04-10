@@ -12,7 +12,7 @@ public class JedisTest {
     @Test
     public void test1(){
         //1. 获得链接对象
-        Jedis jedis=new Jedis("114.67.89.253",40379);
+        Jedis jedis=new Jedis("www.bytes-space.com",50379);
         jedis.auth("centos123qwer");
         //2. 获得数据
         String username=jedis.get("username");
@@ -33,7 +33,7 @@ public class JedisTest {
         jedisPoolConfig.setMinIdle(10); //最小闲置个数
         jedisPoolConfig.setMaxTotal(50);//最大连接数
         //1.创建一个redis连接池
-        JedisPool jedisPool=new JedisPool(jedisPoolConfig,"114.67.89.253",40379,60000,"centos123qwer");
+        JedisPool jedisPool=new JedisPool(jedisPoolConfig,"www.bytes-space.com",50379,60000,"centos123qwer");
 
         //2.从池子中获取redis的连接资源
         Jedis jedis = jedisPool.getResource();

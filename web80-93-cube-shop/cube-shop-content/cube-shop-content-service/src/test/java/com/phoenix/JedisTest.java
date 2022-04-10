@@ -19,7 +19,7 @@ public class JedisTest {
     public void test01(){
         //每一个jedis对象代表一个连接
         // 1. 创建连接redis的jedis对象，参数host port
-        Jedis jedis=new Jedis("114.67.89.253",6379);
+        Jedis jedis=new Jedis("www.bytes-space.com",6379);
         jedis.auth("123456");
         // 2. 直接使用jedis操作redis
         jedis.set("test01","sss");
@@ -36,7 +36,7 @@ public class JedisTest {
         //JedisPool
         GenericObjectPoolConfig genericObjectPoolConfig=new GenericObjectPoolConfig();
         //创建连接池对象
-        JedisPool jedisPool=new JedisPool(genericObjectPoolConfig,"114.67.89.253",6379,10000,"123456",1);
+        JedisPool jedisPool=new JedisPool(genericObjectPoolConfig,"www.bytes-space.com",6379,10000,"123456",1);
         //从连接池获得jedis对象
         Jedis jedis = jedisPool.getResource();
         //使用jedis操作
@@ -56,12 +56,12 @@ public class JedisTest {
     public void test03() throws IOException {
         //set，set中包含若干个 HostAndPort对象
         Set<HostAndPort> clusterNames=new HashSet<>();
-        clusterNames.add(new HostAndPort("114.67.89.253",6390));
-        clusterNames.add(new HostAndPort("114.67.89.253",6391));
-        clusterNames.add(new HostAndPort("114.67.89.253",6392));
-        clusterNames.add(new HostAndPort("114.67.89.253",6393));
-        clusterNames.add(new HostAndPort("114.67.89.253",6394));
-        clusterNames.add(new HostAndPort("114.67.89.253",6395));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6390));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6391));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6392));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6393));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6394));
+        clusterNames.add(new HostAndPort("www.bytes-space.com",6395));
         GenericObjectPoolConfig genericObjectPoolConfig=new GenericObjectPoolConfig();
         //创建连接redis集群对象
         JedisCluster jedisCluster=new JedisCluster(clusterNames,10000,10000,10000,"centos123qwer",genericObjectPoolConfig);

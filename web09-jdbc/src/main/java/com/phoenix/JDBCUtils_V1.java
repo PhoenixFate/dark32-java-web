@@ -8,7 +8,7 @@ public class JDBCUtils_V1 {
         Connection connection=null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://114.67.89.253:3306/web08?useUnicode=true&characterEncoding=utf8&useSSL=false","root","centos123qwer");
+            connection = DriverManager.getConnection("jdbc:mysql://www.bytes-space.com:3306/web08?useUnicode=true&characterEncoding=utf8&useSSL=false","root","centos123qwer");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {

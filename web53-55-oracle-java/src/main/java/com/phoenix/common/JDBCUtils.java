@@ -6,7 +6,7 @@ public class JDBCUtils {
 
     private static String driver="oracle.jdbc.OracleDriver";
 
-    private static String url="jdbc:oracle:thin:@114.67.89.253:57521/helowinXDB";
+    private static String url="jdbc:oracle:thin:@www.bytes-space.com:57521/helowinXDB";
 
     private static String user="scott";
 
