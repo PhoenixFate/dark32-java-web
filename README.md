@@ -9,6 +9,10 @@ mvn clean package -pl 父级模块名/子模块名 -am
 >> - pl --projects 构建制定的模块，模块间用逗号分隔；
 >> - rf -resume-from 从指定的模块恢复反应堆。
 
+## tomcat 控制台中文乱码
+添加 vm 参数 -Dfile.encoding=UTF-8
+
+
 ## 跳多单元测试
 
 -DskipTests

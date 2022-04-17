@@ -68,6 +68,8 @@
         <module>foundation</module>
         <module>web25-enhance</module>
         <module>web27-redis</module>
+        <module>mine-shiro-start</module>
+        <module>mine-shiro-spring</module>
     </modules>
     <packaging>pom</packaging>
 
