@@ -20,12 +20,12 @@ public class ShiroRealm extends AuthorizingRealm {
 
     /**
      * 认证需要实现发方法
+     * 登录成功之后，便不会再执行，需要退出登录
      *
      * @param authenticationToken
      * @return
      * @throws AuthenticationException
      */
-    //登录成功之后，便不会再执行，需要退出登录
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         System.out.println("[first realm]: doGetAuthenticationInfo()");
@@ -35,7 +35,7 @@ public class ShiroRealm extends AuthorizingRealm {
 
         //2. 从UsernamePasswordToken 中来获取username
         String username = usernamePasswordToken.getUsername();
-        //这里的密码，非加密
+        //这里的密码，是前端传过来的密码
         System.out.println("password: " + new String(usernamePasswordToken.getPassword()));
         System.out.println("Credentials: " + new String((char[]) usernamePasswordToken.getCredentials()));
 
