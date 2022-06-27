@@ -70,6 +70,7 @@
         <module>web27-redis</module>
         <module>mine-shiro-start</module>
         <module>mine-shiro-spring</module>
+        <module>mine-activiti6-demo01</module>
     </modules>
     <packaging>pom</packaging>
 
