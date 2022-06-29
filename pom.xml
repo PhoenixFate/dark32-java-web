@@ -71,6 +71,7 @@
         <module>mine-shiro-start</module>
         <module>mine-shiro-spring</module>
         <module>mine-activiti6-demo01</module>
+        <module>mine-activiti6-samples</module>
     </modules>
     <packaging>pom</packaging>
 
