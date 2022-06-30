@@ -15,7 +15,7 @@ public class ConfigDBTest {
 
     @Test
     public void testConfigDB() {
-        ProcessEngineConfiguration configuration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResourceDefault();
+        ProcessEngineConfiguration configuration = ProcessEngineConfiguration.createProcessEngineConfigurationFromResource("activiti-mysql.cfg.xml");;
         LOGGER.info("configuration = {}", configuration);
         ProcessEngine processEngine = configuration.buildProcessEngine();
         LOGGER.info("获取的流程引擎 {}", processEngine.getName());
