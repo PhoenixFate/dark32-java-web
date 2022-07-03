@@ -13,31 +13,18 @@ import org.slf4j.LoggerFactory;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
-public class ConfigMDCTest {
+public class ConfigMDCPrintDetailTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigMDCTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigMDCPrintDetailTest.class);
 
     @Rule
-    public ActivitiRule activitiRule = new ActivitiRule("activiti.cfg.xml");
+    public ActivitiRule activitiRule = new ActivitiRule("activiti-mdc.cfg.xml");
 
     @Test
     @Deployment(resources = {"my-process.bpmn20.xml"})
-    public void test() {
+    public void testMDCPrintDetail() {
         //打开mdc (正常过程不会打印mdc，还需要自己制造一个异常才回打印mdc)
-        LogMDC.setMDCEnabled(true);
-        ProcessInstance processInstance = activitiRule.getRuntimeService().startProcessInstanceByKey("my-process");
-        assertNotNull(processInstance);
-        Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
-        System.out.println(task.getName());
-        assertEquals("Activiti is awesome!", task.getName());
-        activitiRule.getTaskService().complete(task.getId());
-    }
-
-    @Test
-    @Deployment(resources = {"my-process-mdc-error.bpmn20.xml"})
-    public void testMDCError() {
-        //打开mdc (正常过程不会打印mdc，还需要自己制造一个异常才回打印mdc)
-        LogMDC.setMDCEnabled(true);
+        //LogMDC.setMDCEnabled(true);
         ProcessInstance processInstance = activitiRule.getRuntimeService().startProcessInstanceByKey("my-process");
         assertNotNull(processInstance);
         Task task = activitiRule.getTaskService().createTaskQuery().singleResult();
