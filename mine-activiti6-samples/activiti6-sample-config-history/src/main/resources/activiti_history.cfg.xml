@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processEngineConfiguration"
+          class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+        <property name="commandInvoker" ref="commandInvoker"/>
+        <!--历史级别： none；-->
+        <!--<property name="history" value="none"/>-->
+        <!--<property name="history" value="activity"/>-->
+        <!--历史级别：audit审计-->
+        <!--<property name="history" value="audit"/>-->
+        <!--历史级别：全部-->
+        <property name="history" value="full"/>
+
+    </bean>
+    <bean id="commandInvoker" class="com.phoenix.activiti.interceptor.MDCCommandInvoker"/>
+
+</beans>

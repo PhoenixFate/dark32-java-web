@@ -13,6 +13,7 @@
         <module>activiti6-sample-config</module>
         <module>activiti6-sample-config-db</module>
         <module>activiti6-sample-config-mdc</module>
+        <module>activiti6-sample-config-history</module>
     </modules>
 
     <artifactId>mine-activiti6-samples</artifactId>
