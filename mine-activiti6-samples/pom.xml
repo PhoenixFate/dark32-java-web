@@ -14,6 +14,7 @@
         <module>activiti6-sample-config-db</module>
         <module>activiti6-sample-config-mdc</module>
         <module>activiti6-sample-config-history</module>
+        <module>activiti6-sample-config-event-log</module>
     </modules>
 
     <artifactId>mine-activiti6-samples</artifactId>
