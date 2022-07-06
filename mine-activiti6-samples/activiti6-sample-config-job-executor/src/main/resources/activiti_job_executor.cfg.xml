@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="processEngineConfiguration"
+          class="org.activiti.engine.impl.cfg.StandaloneInMemProcessEngineConfiguration">
+        <property name="commandInvoker" ref="commandInvoker"/>
+        <!--是否开启 异步执行器-->
+        <property name="asyncExecutorActivate" value="true"/>
+        <!--配置异步执行器，用于执行一些定时任务-->
+        <property name="asyncExecutor" ref="asyncExecutor"/>
+        <!--配置Job的监听器-->
+        <property name="eventListeners">
+            <list>
+                <bean class="com.phoenix.activiti.event.JobEventListener"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="asyncExecutor" class="org.activiti.engine.impl.asyncexecutor.DefaultAsyncJobExecutor">
+        <!--需要一个执行服务-->
+        <property name="executorService" ref="executorService"/>
+    </bean>
+    <bean id="executorService" class="org.springframework.scheduling.concurrent.ThreadPoolExecutorFactoryBean">
+        <property name="threadNamePrefix" value="activiti-job-"/>
+        <property name="corePoolSize" value="5"/>
+        <property name="maxPoolSize" value="20"/>
+        <property name="queueCapacity" value="100"/>
+        <!--最大容量满了之后的执行策略：拒绝策略-->
+        <property name="rejectedExecutionHandler">
+            <bean class="java.util.concurrent.ThreadPoolExecutor.AbortPolicy"/>
+        </property>
+    </bean>
+
+    <bean id="commandInvoker" class="com.phoenix.activiti.interceptor.MDCCommandInvoker"/>
+
+</beans>
