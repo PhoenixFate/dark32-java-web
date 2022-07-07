@@ -19,6 +19,7 @@
         <module>activiti6-sample-config-interceptor</module>
         <module>activiti6-sample-config-job-executor</module>
         <module>activiti6-sample-config-spring</module>
+        <module>activiti6-sample-core-api-repository</module>
     </modules>
 
     <artifactId>mine-activiti6-samples</artifactId>
