@@ -15,9 +15,9 @@ import org.slf4j.LoggerFactory;
 import java.util.List;
 
 
-public class ConfigRepositoryServiceTest {
+public class RepositoryServiceTest {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ConfigRepositoryServiceTest.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RepositoryServiceTest.class);
 
     @Rule
     public ActivitiRule activitiRule = new ActivitiRule();
