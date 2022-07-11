@@ -18,7 +18,7 @@ public class JdbcTemplateDemo {
         //0.准备连接池
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-        comboPooledDataSource.setJdbcUrl("jdbc:mysql://www.bytes-space.com:3306/darkhorse32_hibernate");
+        comboPooledDataSource.setJdbcUrl("jdbc:mysql://www.bytes-space.com:63306/darkhorse32_hibernate");
         comboPooledDataSource.setUser("root");
         comboPooledDataSource.setPassword("centos123qwer");
         //1.创建jdbcTemplate对象
@@ -35,7 +35,7 @@ public class JdbcTemplateDemo {
         //0.准备连接池
         ComboPooledDataSource comboPooledDataSource = new ComboPooledDataSource();
         comboPooledDataSource.setDriverClass("com.mysql.cj.jdbc.Driver");
-        comboPooledDataSource.setJdbcUrl("jdbc:mysql://www.bytes-space.com:3306/darkhorse32_hibernate");
+        comboPooledDataSource.setJdbcUrl("jdbc:mysql://www.bytes-space.com:63306/darkhorse32_hibernate");
         comboPooledDataSource.setUser("root");
         comboPooledDataSource.setPassword("centos123qwer");
         //1.创建jdbcTemplate对象

@@ -11,7 +11,7 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
-                        connectionURL="jdbc:mysql://www.bytes-space.com:3306/darkhorse32_mybatis?characterEncoding=utf-8"
+                        connectionURL="jdbc:mysql://www.bytes-space.com:63306/darkhorse32_mybatis?characterEncoding=utf-8"
                         userId="root"
                         password="centos123qwer">
             <!--解决连接到别的数据库表问题-->

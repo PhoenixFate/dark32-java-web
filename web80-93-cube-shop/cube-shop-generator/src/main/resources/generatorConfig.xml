@@ -18,7 +18,7 @@
 
 		<!--数据库配置-->
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-						connectionURL="jdbc:mysql://www.bytes-space.com:3306/cube-mall"
+						connectionURL="jdbc:mysql://www.bytes-space.com:63306/cube-mall"
 						userId="root"
 						password="123456">
 		</jdbcConnection>
