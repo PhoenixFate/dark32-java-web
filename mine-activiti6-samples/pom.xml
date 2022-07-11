@@ -24,6 +24,7 @@
         <module>activiti6-sample-core-api-task</module>
         <module>activiti6-sample-core-api-identity</module>
         <module>activiti6-sample-core-api-history</module>
+        <module>activiti6-sample-dbentity</module>
     </modules>
 
     <artifactId>mine-activiti6-samples</artifactId>
