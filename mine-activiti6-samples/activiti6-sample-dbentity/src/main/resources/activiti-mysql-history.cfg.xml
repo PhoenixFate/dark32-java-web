@@ -18,6 +18,9 @@
         <property name="dbHistoryUsed" value="true"/>
         <!--是否需要身份数据，默认为true-->
         <property name="dbIdentityUsed" value="true"/>
+        <!--历史记录级别-->
+        <property name="historyLevel" value="FULL"/>
+        <property name="enableDatabaseEventLogging" value="true"/>
     </bean>
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
