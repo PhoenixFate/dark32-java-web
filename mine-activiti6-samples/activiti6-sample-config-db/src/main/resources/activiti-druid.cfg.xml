@@ -27,7 +27,7 @@
 
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="url"
-                  value="jdbc:mysql://www.bytes-space.com:63306/activiti6?characterEncoding=UTF-8&amp;nullCatalogMeansCurrent=true&amp;serverTimezone=GMT&amp;useSSL=false"/>
+                  value="jdbc:mysql://www.bytes-space.com:10307/activiti6?characterEncoding=UTF-8&amp;nullCatalogMeansCurrent=true&amp;serverTimezone=GMT&amp;useSSL=false"/>
         <!--默认驱动也是h2驱动-->
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"/>
         <property name="username" value="root"/>

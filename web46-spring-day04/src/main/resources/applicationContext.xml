@@ -37,7 +37,7 @@
             <props>
                 <!--<prop key="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</prop>-->
                 <!--&lt;!&ndash; 2.数据库url &ndash;&gt;-->
-                <!--<prop key="hibernate.connection.url">jdbc:mysql://www.bytes-space.com:63306/darkhorse32_hibernate</prop>-->
+                <!--<prop key="hibernate.connection.url">jdbc:mysql://www.bytes-space.com:10307/darkhorse32_hibernate</prop>-->
                 <!--&lt;!&ndash; 3.数据库连接用户名 &ndash;&gt;-->
                 <!--<prop key="hibernate.connection.username">root</prop>-->
                 <!--&lt;!&ndash; 4.数据库连接密码 &ndash;&gt;-->

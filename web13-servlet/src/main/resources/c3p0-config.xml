@@ -3,6 +3,6 @@
 		<property name="user">root</property>
 		<property name="password">centos123qwer</property>
 		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
-		<property name="jdbcUrl">jdbc:mysql://www.bytes-space.com:63306/web13?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</property>
+		<property name="jdbcUrl">jdbc:mysql://www.bytes-space.com:10307/web13?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</property>
 	</default-config> 
 </c3p0-config> 
