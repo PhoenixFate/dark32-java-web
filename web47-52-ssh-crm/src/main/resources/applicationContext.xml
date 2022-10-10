@@ -71,9 +71,9 @@
         2.在spring配置中放置hibernate配置信息
     -->
     <!--不重要-->
-    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean2">
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
-    </bean>
+    <!--<bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean2">-->
+    <!--    <property name="configLocation" value="classpath:hibernate.cfg.xml"/>-->
+    <!--</bean>-->
 
     <!--重要-->
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" name="localSessionFactoryBean">
@@ -119,7 +119,7 @@
     <!--dao-->
     <bean class="com.phoenix.dao.impl.UserDaoImpl" name="userDao">
         <!--注入sessionFactory-->
-        <property name="sessionFactory" ref="localSessionFactoryBean2"/>
+        <property name="sessionFactory" ref="localSessionFactoryBean"/>
     </bean>
 
 </beans>

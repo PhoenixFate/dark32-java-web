@@ -3,6 +3,9 @@
         "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+    <!--允许动态调用方法，通配符+占位符组合，必须加上这行代码-->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+
     <!--struts2不再负责对象的创建-->
     <!--将action的创建交给Spring容器-->
     <constant name="struts.objectFactory" value="spring"/>
@@ -22,11 +25,10 @@
      -->
     <constant name="struts.devMode" value="true"/>
 
-    <package name="crm" namespace="/crm" extends="struts-default" >
+    <package name="crm" namespace="/" extends="struts-default" >
         <global-exception-mappings>
             <exception-mapping exception="java.lang.RuntimeException" result="error"/>
         </global-exception-mappings>
-
 
         <!--默认整个 package里面所有的action 会调用上面配置的interceptor-->
         <!--整合方案1 不推荐
