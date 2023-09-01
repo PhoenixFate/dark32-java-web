@@ -12,7 +12,6 @@
     <artifactId>web78-solr-jd</artifactId>
     <packaging>war</packaging>
 
-
     <!-- 集中定义依赖版本号 -->
     <properties>
         <junit.version>4.12</junit.version>

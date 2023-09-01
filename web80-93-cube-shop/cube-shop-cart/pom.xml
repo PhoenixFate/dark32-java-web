@@ -16,7 +16,6 @@
         <module>cube-shop-cart-service</module>
     </modules>
 
-
     <dependencies>
         <dependency>
             <groupId>com.phoenix</groupId>

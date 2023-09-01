@@ -11,11 +11,12 @@
 
     <artifactId>web45-spring-day03</artifactId>
 
-
     <packaging>war</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <spring.version>4.2.4.RELEASE</spring.version>
     </properties>
 
