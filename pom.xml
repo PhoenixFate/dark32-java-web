@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.phoenix</groupId>
-    <artifactId>darkhorse32-java-web</artifactId>
+    <artifactId>dark32-java-web</artifactId>
     <version>1.0.0</version>
     <modules>
         <module>web01-html</module>
@@ -72,6 +72,7 @@
         <module>mine-shiro-spring</module>
         <module>mine-activiti6-demo01</module>
         <module>mine-activiti6-samples</module>
+        <module>plane-game</module>
     </modules>
     <packaging>pom</packaging>
 
